@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: cadetblue;
+        }
+        .textbox{
+            height: 350px;
+            width: 550px;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin-left: 100px;
+            margin-top: 80px;
+            font-size: 15px;
+        }
+        .binarybox{
+            height: 350px;
+            width: 550px;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin-right: 100px;
+            float: right;
+            margin-top: 380px;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            margin-left: 50px;
+            font-size: 20px;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" class="textbox" id="textbox" placeholder="enter your text here">
+    <button id="binary_btn" class="btn">Generate</button>
+    <div class="binarybox" id="binarybox" aria-placeholder="morsecode comes here"></div>
+    <script>
+        document.getElementById('binary_btn').onclick=function(){
+            document.getElementById('binarybox').innerHTML=" "
+            var sentence=document.getElementById('textbox').value
+            arr=sentence.split(" ")
+            for(i=0;i<arr.length;i++){
+                if(arr[i]>=-99999 || arr[i]<=99999){
+                    var quotient
+                    var remainder
+                    var binary=[]
+                    var index=0
+                    while(quotient!=0){
+                        quotient=Math.floor(arr[i]/2)
+                        remainder=arr[i]%2
+                        binary[index]=remainder
+                        arr[i]=quotient
+                        index++
+                    }
+                    document.getElementById('binarybox').innerHTML+="&nbsp;"+binary.reverse()
+                    if(quotient==0){
+                        var remainder=1;
+                        var quotient=1;
+                        var binary=[]
+                    }
+                }
+                else{
+                    var word=arr[i]
+                    for(carat=0;carat<word.length;carat++){
+                        
+                        var numm=word.charCodeAt(carat)
+                        var remainderr;
+                        var quotientt;
+                        var indexx=0;
+                        var binaryy=[]
+                        while(quotientt!=0){
+                            quotientt=Math.floor(numm/2)
+                            remainderr=numm%2
+                            binaryy[indexx]=remainderr
+                            numm=quotientt
+                            indexx++  
+                        }
+                        document.getElementById('binarybox').innerHTML+=" &nbsp; 0"+binaryy.reverse()
+                        if(quotientt==0){
+                            var remainderr=1;
+                            var quotientt=1;
+                            var binaryy=[]
+                            var num=0
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+    //     lists=[1,2,3,4,5,6,7,8,9,0,"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","(",")","&","+","=",",","/","?" ]
+	// codes=[".----","..---","...--","....-",".....","-....","--...","---..","----.","/",".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+    //  var sentence=prompt("enter any sentence here")
+	// var arr=[...sentence]
+	// console.log(arr)
+    //  for(a=0;a<arr.length;a++){
+	// 	for(b=0;b<lists.length;b++){
+    //          if(arr[a]==lists[b]){
+    //             document.getElementById('box').innerHTML+=" "+codes[b] 
+	// 		 }
+	// 	}
+	//  }
+            </script>
+</body>
+</html>
