@@ -1,0 +1,410 @@
+main {
+    min-width: 200px;
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 10px;
+  }
+  main .wrap {
+    padding: 40px 20px;
+    background-color: #fff;
+  }
+  main .title {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px auto 40px;
+    text-transform: uppercase;
+  }
+  
+  header nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 170px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+  }
+  header nav ul li {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  header nav ul li a {
+    display: block;
+    font-size: 2em;
+    text-decoration: none;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  header nav ul li a:hover {
+    color: #e84a5f;
+  }
+  
+  .toggle-btn {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    left: 10px;
+    /* right: 10px; */
+    top: 10px;
+    cursor: pointer;
+  }
+  .toggle-btn .bar {
+    width: 30px;
+    height: 2px;
+    margin: 7px auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+  }
+  .toggle-btn .bar:nth-child(2) {
+    width: 20px;
+  }
+  
+  #toggle:checked ~ nav {
+    opacity: 1;
+    visibility: visible;
+  }
+  #toggle:checked ~ nav ul {
+    top: 70px;
+  }
+  #toggle:checked ~ nav ul li {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  #toggle:checked ~ nav ul li:nth-child(1) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.1s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(2) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.2s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(3) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.3s;
+  }
+  #toggle:checked ~ nav ul li:nth-child(4) {
+    transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) 0.4s;
+  }
+  #toggle:checked + label.toggle-btn .bar {
+    background-color: red;
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(2) {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  #toggle:checked + label.toggle-btn .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  body{
+    margin: 0px;
+    padding: 0px;
+}
+.front{
+    background-image: url('https://dx35vtwkllhj9.cloudfront.net/netflix/wednesday-addams-nevermore-academy/video/desktop_bg_poster.png');
+    width: 100%;
+    height: 750px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.share{
+    font-size: 2em;
+    position: fixed;
+    margin-left: 90%;
+    margin-top: 0.6em;
+    color: white;
+}
+#logo{
+    height: 350px;
+    width: 350px;
+    margin-left: 40%;
+    margin-top: 13%;
+}
+.mission{
+background-color: rgb(29, 2, 29);
+height: 1400px;
+}
+.mission-title{
+padding-top: 50px;
+font-size: 70px;
+margin-left: 10%;
+color: rgb(225, 225, 35);
+}
+.mission-content{
+margin-left: 10%;
+margin-top: 30px;
+font-size: 30px;
+width: 76%;
+color: white;
+}
+#welcome{
+margin-top: 10%;
+height: 800px;
+width: 100%;
+}
+.principle{
+  display: flex;
+  flex-wrap: wrap;
+  height: 800px;
+  background-color: rgb(45, 35, 48);
+}
+.principle-pic{
+  margin-top: 80px;
+  margin-left: 200px;
+}
+#principle-pic{
+  height: 555px;
+  width: 376px;
+}
+.principle-content{
+
+  height: 600px;
+  width: 650px;
+  /* border: 2px solid black; */
+  margin-left: 100px;
+  margin-top: 80px;
+}
+.principle-content p{
+  font-size: 25px;
+  color: rgb(225, 225, 35);
+}
+/* .p1{
+  font-size: 45px;
+ color: white;
+ max-width: 50px;
+}
+.p2{
+  font-size: 22px;
+  color: white;
+}
+.quote{
+  font-size: 40px;
+  color:  rgb(211, 24, 24);
+  font-family: cursive;
+} */
+.students{
+  height: 2000px;
+  background-color: rgb(29, 2, 29);
+}
+.students h1{
+  text-align: center;
+  font-size: 45px;
+  color: rgb(225, 225, 35);
+  font-family: Sorts Mill Goudy,serif;
+  font-weight: normal;
+  margin-top: 0px;
+  padding-top: 100px;
+}
+.alumnis{
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* justify-content: space-between; */
+}
+.alumni1{
+  height: 600px;
+  margin: 0 0 0 150px;
+  width: 300px;
+  border: 2px solid black;
+}
+.alumni-content h4{
+  font-size: 25px;
+  color: white;
+}
+.alumni-content p{
+  font-size: 18px;
+  color: white;
+}
+
+
+
+
+/* responsive design starts from here  */
+@media(max-width:1200px){
+  .share{
+      margin-left: 80%;
+      font-size: 1.4em;
+  }
+  .principle{
+      height: 1400px;
+  }
+  .principle-pic{
+      margin-left: 26%;
+  }
+  .principle-content{
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+}
+@media(max-width:768px){
+  .front li a{
+      font-size: 1.4em; 
+  }
+  .share{
+      margin-left: 80%;
+      font-size: 1.4em;
+  }
+  #logo{
+      height: 200px;
+      width: 200px;
+      margin-top: 29%;
+  }
+  .mission{
+      height: 1100px;
+  }
+  .mission-title{
+      font-size: 40px;
+      margin-left:10% ;
+  }
+  .mission-content{
+      margin-left: 10%;
+      font-size: 29px;
+      width: 76%;
+  }
+  #welcome{
+      margin-top: 8%;
+      height: 600px;
+  }
+  .principle{
+      height: 1300px;
+  }
+  .principle-pic{
+      margin-left: 20%;
+  }
+  #principle-pic{
+      height: 500px;
+  }
+  .principle-content{
+      margin-left: 0px;
+      margin-top: 0px;
+  }
+}
+@media(max-width:480px){
+  .front{
+      height: 400px;
+  }
+  .front li a{
+     font-size: 0.8em; 
+  }
+  .share{
+      margin-left: 70%;
+      font-size: 1.1em;
+  }
+  #logo{
+      height: 120px;
+      width: 120px;
+      margin-top: 40%;
+  }
+  .mission{
+      height: 800px;
+  }
+  .mission-title{
+      font-size: 30px;
+      margin-left:10% ;
+  }
+  .mission-content{
+      margin-left: 10%;
+      font-size: 22px;
+      width: 76%;
+  }
+  #welcome{
+      margin-top: 6%;
+      height: 400px;
+  }
+  .principle{
+      height: 1100px;
+  }
+  .principle-pic{
+      margin-left: 10%;
+  }
+  .principle-content p{
+      font-size: 18px;
+  }
+  .p1{
+      font-size: 35px;
+  }
+  .p2{
+      font-size: 18px;
+  }
+  .quote{
+      font-size: 30px;
+  }
+  .alumni1{
+     margin: 0 0 0 70px;
+  }
+}
+@media(max-width:320px){
+  .front{
+      height: 400px;
+  }
+  .front li a{
+     font-size: 0.2em; 
+  }
+  .share{
+      margin-left: 60%;
+  }
+  #logo{
+      margin-left:30% ;
+      margin-top: 45%;
+  }
+  .mission{
+      height: 600px;
+  }
+  .mission-title{
+      font-size: 30px;
+      margin-left:10% ;
+  }
+  .mission-content{
+      margin-left: 10%;
+      font-size: 20px;
+      width: 72%;
+  }
+  #welcome{
+      margin-top: 4%;
+      height: 200px;
+  }
+  .principle{
+      height: 830px;
+  }
+  .principle-pic{
+      margin-left: 15%;
+  }
+  #principle-pic{
+      height: 300px;
+       width: 200px;
+     margin-left: 0%; 
+  }
+  .principle-content p{
+      font-size: 15px;
+  }
+  .p1{
+      font-size: 30px;
+  }
+  .p2{
+      font-size: 15px;
+  }
+  .quote{
+      font-size: 20px;
+  }
+  .alumni1{
+     margin: 0 0 0 10px;
+  }
+}

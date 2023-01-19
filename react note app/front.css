@@ -1,0 +1,40 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.app-title{
+    margin: 0px;
+    padding: 0px;
+    font-size: 50px;
+    text-align: center;
+    font-family: fantasy;
+    color: teal;
+    background-color: lightblue;
+}
+.add-button{
+    margin: 0px;
+    padding: 0px;
+    height: 100px;
+    width: 100%;
+    border-radius: 15px;
+}
+.dialogue{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+z-index: 100;
+}
+.messages{
+    height: 250px;
+    width: 200px;
+    font-family: cursive;
+}
+.box{
+    border: 2px solid black;
+    height: 100px;
+    width: 99%;
+    font-size: 60px;
+    font-family: cursive;
+    color:rgb(166, 44, 166);
+    background-color: tan;
+}

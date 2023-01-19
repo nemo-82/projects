@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: darkkhaki;
+        }
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wiki-logo{
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 150px;
+            width: 150px;
+           }
+           .search-pannel{
+            display: flex;
+            justify-content: center;
+           }
+           .searchbar{
+            height: 40px;
+            border-radius: 30px;
+            border: 1px solid black;
+            width: 500px;
+            font-size: 30px;
+           }
+           .search-button{
+            border-radius: 10px;
+            width: 40px;
+            font-size: 20px;
+            border: 2px solid black;
+           }
+           .voice-button{
+            border-radius: 10px;
+            width: 40px;
+            font-size: 30px;
+            border: 2px solid black;
+           }
+           .image-search{
+            border-radius: 10px;
+            width: 70px;
+            font-size: 30px;
+            border: 2px solid black;
+           }
+           .results{
+            width: 100%;
+            height: auto;
+            border: none;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 50px;
+            font-family: monospace;
+           }
+           .images-results{
+            display: flex;
+            /* justify-content: space-between; */
+            width: 100%;
+            height: 200px;
+           }
+           .images{
+                    width: 250px;
+                    height: 200px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+           }
+           .images-results{
+            margin-top: 20px;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            display: none;
+           }
+    </style>
+</head>
+<body>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=lJzgreHJ">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<div class="logo"><img src="Wikipedia_logo_gold.png" alt="Search Engine Logo" srcset="" class="wiki-logo"></div>
+<div class="search-pannel">
+    <input type="text" id="searchbar" class="searchbar" placeholder="Search Here">
+    <button class="search-button" id="search-button">🔍</button>
+    <button class="voice-button" id="voice-button">🗣</button>
+    <button class="image-search" id="image-search"> <a href="image-search.html"> 📸</a></button>
+</div>
+<div class="images-results">
+    <img src="" alt="" srcset="" class="images" id="1">
+    <img src="" alt="" srcset="" class="images" id="2">
+    <img src="" alt="" srcset="" class="images" id="3">
+    <img src="" alt="" srcset="" class="images" id="4">
+    <img src="" alt="" srcset="" class="images" id="5">
+    <img src="" alt="" srcset="" class="images" id="6">
+    <a href="image-search.html">➡</a>
+</div>
+<div class="results" id="results"></div>
+<script>
+    $('#search-button').click(function(){
+        var search_string=$('#searchbar').val()
+        let p=fetch("https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles="+search_string)
+            p.then((value1)=>{
+                return value1.json()
+            }).then((value2)=>{
+             response=value2.query.pages
+             var pageid=Object.keys(response)[0]
+             $('.results').text(response[pageid].extract)
+             $('.results').css({
+                'border-top':'1px solid black'
+             })
+            })
+        let q=fetch("https://pixabay.com/api/?key=31727898-e3dbdfd36712c46438b472001&q="+search_string+"&image_type=photo")
+        q.then((response1)=>{
+            return response1.json()
+        }).then((response2)=>{
+            console.log(response2.hits[0].previewURL)
+            if(search_string==""){
+                $('.images-results').empty()
+                $('.images-results').css({
+               "display":"none"
+            })
+            }
+            var hits=0
+            $('.images-results').css({
+               "display":"flex"
+            })
+            for(index=1;index<=6;index++){
+             $('#'+index).attr('src',response2.hits[hits].previewURL)
+             hits++
+            }
+        })
+    })
+    $('#voice-button').click(function(){
+        var data=$('#results').text()
+        responsiveVoice.speak(data, "UK English Male", {pitch: 0.},{rate:0.5});
+    })
+</script>
+</body>
+</html>

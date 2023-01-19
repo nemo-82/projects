@@ -1,0 +1,64 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+               margin: 0px;
+               padding: 0px;
+        }
+        .data{
+            border: 0.1px solid black;
+            height: auto;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .boxes{
+            border: 1px solid black;
+            margin-left: 2px;
+            /* width: 30%; */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+    <input type="file" id="input" readonly="xlsx">
+    <div class="data">
+
+    </div>
+    <table id="tbl-data"></table>
+    <script>
+        var input=document.getElementById('input');
+        input.addEventListener('change',function(){
+            readXlsxFile(input.files[0]).then(function(data){
+                $('.data').empty()
+                $('.boxes').css({"width":"0px"})
+                var length=data[0].length
+                var width=Math.floor( 100/length)
+                var box_width=width-2
+                var fin=width*length
+                console.log(width)
+                console.log(fin)
+                for(a=0;a<length;a++){
+                    for(b=0;b<length;b++){
+                            $('.data').append("<div class=boxes id=box"+a+">"+data[a][b]+"</div>")
+
+                        $('.boxes').css({
+                            "width":box_width+"%"
+                    })
+                    $('.data').css({
+                            "width":fin+"%"
+                    })
+                }
+                    
+                }
+
+            })
+        })
+    </script>
+
+</body></html>
